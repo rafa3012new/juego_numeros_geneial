@@ -1,0 +1,36 @@
+{% extends "juegonumeros_base.html" %}
+
+{%block titulo%}Tabla de Ganadores{%endblock%}
+{%block contenido1%}El Gran juego de Numeros Ninja!{%endblock%}
+{%block contenido2%}Tabla de Ganadores!{%endblock%}
+{%block contenido3%}
+  <table id="tabla_ganadores">
+    <thead>
+      <tr>
+        <td>Ganador</td>
+        <td>Intentos</td>
+        <td>Fecha</td>
+      </tr>
+    </thead>
+    <tbody>
+      {%if session['ganadores']|length > 0%}
+         {%for i in session['ganadores']%}
+         <tr>
+           <td>{{i['ganador']}}</td>
+           <td>{{i['intentos']}}</td>
+           <td>{{i['fecha']}}</td>
+          </tr>
+         {%endfor%}
+      {%else%}
+        <tr>
+          <td>No hay Ganadores</td>
+          <td>0</td>
+          <td id="fecha_vacia">Fecha</td>
+        </tr>
+      {%endif%}
+    </tbody>
+  </table>
+{%endblock%}
+{%block contenido4%}
+  <a href="/resetearjuego">regresar</a>
+{%endblock%}

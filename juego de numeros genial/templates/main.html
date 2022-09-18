@@ -1,0 +1,80 @@
+{% extends "juegonumeros_base.html" %}
+{%block titulo%}El gran Juego de numeros Genial!{%endblock%}
+{%block contenido1%}Bienvenidos al gran juego de numeros Ninja!{%endblock%}
+{%block contenido2%}
+   Escriba en un numero entre 1 y 100, y trate de adivinar cual es... 
+  {%if session['intentos'] > 0%}
+    {{session['intentos']}} intentos
+  {%endif%}
+{%endblock%}
+{%block contenido3%}
+      <div class="mensaje">
+        {% if session['ganador'] == True %}
+          <h6 class="ganador">Has</h6>
+        {%else:%}
+          {% if session['intentos'] < 5 %}
+            {%if session['mayor'] %}
+              <h6 class="inicial">El numero secreto</h6>
+            {%else:%}
+              {%if session['intentos'] == 0 %}
+                <h6 class="inicial"></h6>
+              {% else %}
+                <h6>El numero secreto es</h6>
+              {%endif%}
+            {%endif%}
+          {% else %}
+            <h6 class="perdedor">Game</h6>
+          {%endif%}
+        {%endif%}
+        </div>
+      <div class="formulario">
+        <form action="/procesar" method="post">
+          <div id="cuadro_imagen">
+            <img id="backgroudninja" src="{{ url_for('static', filename= 'img/background_ninja_number_blank.jpg')}}" alt="no se puede mostrar la imagen de fondo del juego">
+            <div id="pizarra">
+            {% if session['ganador'] == True %}
+              <input type="hidden" value="True" name="otrapartida" />
+              <p id="labelnombreganador">Introduzca su nombre</p>
+              <input id="ganador_input" type="text" name="nombre_ganador" id="nombre_ganador" minlength="1" maxlength="100">              
+              <button id="otrapartidaganador" type="submit">Jugar otra partida</button>
+            {%else%}
+                {%if session['intentos'] < 5 %}
+                  <input type="hidden" value="False" name="otrapartida" />
+                  <input type="text" name="numero_introducido" id="numero_introducido" pattern="^\d+$" minlength="1" maxlength="3" oninvalid="solo numeros" oninput="solo numeros">
+                  <button id="probar" type="submit">Probar</button>
+                {%else%}  
+                  <input id="intento_input" type="hidden" value="True" name="otrapartida" />
+                  <p id="numeroera">El numero era</p>
+                  <p id="numeroadivinar">{{session['numero_adivinar']}}</p>
+                  <button id="otrapartidaperdedor" type="submit">Jugar otra partida</button>
+                {%endif%}  
+            {%endif%}
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="mensaje">
+        {% if session['ganador'] == True %}
+          <h6 class="ganador">Ganado!</h6>
+        {%else:%}
+          {% if session['intentos'] < 5 %}
+            {%if session['mayor'] %}
+               <h6 class="inicial">es Mayor</h6>
+            {%else:%}
+              {%if session['intentos'] == 0 %}
+                 
+              {% else %}
+                <h6 class="inicial">es Menor</h6>
+              {%endif%}
+            {%endif%}
+          {% else %}
+             <h6 class="perdedor">Over</h6>
+          {%endif%}
+        {%endif%}
+      </div>
+
+{%endblock%}
+{%block contenido4%}
+  <a href="/mostrarganadores">Mostrar Ganadores</a>
+  <a href="/resetearjuego">Resetear Juego</a>
+{%endblock%}

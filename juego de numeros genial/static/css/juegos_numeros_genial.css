@@ -1,0 +1,165 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+#cuadro_imagen{
+    margin:20px auto 0;
+    width: 300px;
+    height: 400px;
+}
+
+#backgroudninja{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#numero_introducido{
+    position: relative;
+    top: -220px;
+    left: 35px;
+    width: 200px;
+    height: 50px;
+    font-size: 0.5em;
+    border: 2px solid black;
+    text-align: center;
+}
+
+#numeroera, #numeroadivinar{
+    position: relative;
+    font-size: 0.2em;
+    margin: 0;
+    padding: 0;
+    color:crimson
+}
+
+ #numeroera{
+    top: -170px;
+    left: -10px;
+ }
+
+#numeroadivinar{
+    top: -160px;
+    left: -10px;
+}
+
+#otrapartidaganador{
+    position: relative;
+    top: -125px;
+    left: -120px;
+    background-color: antiquewhite;
+}
+
+#otrapartidaperdedor{
+    position: relative;
+    display: inline-block;
+    top: -270px;
+    left: -10px;
+    background-color: antiquewhite;
+}
+
+#probar{
+    position: relative;
+    top: -195px;
+    left: -135px;
+    background-color: antiquewhite;
+}
+
+#labelnombreganador{
+    position: relative;
+    font-size: 0.2em;
+    color: black;
+    top: -200px;
+    left: -15px;
+}
+
+#ganador_input{
+    position: relative;
+    font: 0.5em;
+    top: -340px;
+    left: -15px;
+    width: 240px;
+}
+
+#otrapartidaganador{
+    position: relative;
+    font: 0.5em;
+    top: -470px;
+    left: -20px;
+}
+
+#iconapp{
+    width: 100px;
+    height: 100px;
+}
+
+.titulo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    line-height: 65px;
+    gap: 20px;
+}
+
+.principal{
+    /* outline: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo{
+    /* outline: 1px solid red; */
+    text-align: center;
+}
+
+.etiqueta{
+    /* outline: 1px solid blue; */
+    text-align: center;
+}
+
+
+
+#contenido{
+    /* outline: 1px solid green; */
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#contenido div:first-child{
+    /* outline: 1px solid red; */
+    align-self: center;
+    font-size: 3em;
+    width: 350px;
+    text-align: center;
+}
+
+#contenido div:last-child{
+    /* outline: 1px solid blue; */
+    align-self: center;
+    font-size: 3em;
+    width: 350px;
+    text-align: center;
+}
+
+.inicial{
+    color:black
+}
+
+.ganador{
+    color: green;
+}
+
+.perdedor{
+        color: red;
+}
+
+
+#tabla_ganadores, #tabla_ganadores tr, #tabla_ganadores td {
+    border: 1px solid black;
+}
+#tabla_ganadores td{
+    text-align: center;
+}

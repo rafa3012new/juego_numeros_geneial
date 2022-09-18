@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block titulo%}{%endblock%}Demo Flask</title>
+    <link rel="stylesheet" href= "{{ url_for('static', filename= 'css/juegos_numeros_genial.css') }}" type="text/css">
+</head>
+<body>
+  <div class="principal">
+  
+    <div class="titulo">
+      <img id="iconapp" src="{{ url_for('static', filename= 'img/icon_codingdojo.png')}}" alt="">
+      <h1 class="h1especial">{%block contenido1%}{%endblock%}</h1>
+    </div>
+  
+    <div class="etiqueta">
+      <h3>{%block contenido2%}{%endblock%}</h3>
+    </div>
+  
+    <div id="contenido">
+      {%block contenido3%}
+      {%endblock%}
+    </div>
+
+    <div class="opciones_finales">
+        {%block contenido4%}
+        {%endblock%}
+    </div>
+    
+</div>
+</body>
+</html>
